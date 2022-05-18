@@ -1,0 +1,25 @@
+section {
+    margin-left: 440px;
+}
+
+table {
+    width: 600px;
+    border: none;
+}
+
+thead {
+    font-weight: bold;
+    text-align: center;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+a {
+    text-decoration: none;
+}
+
+td {
+    border: 1px solid black;
+}

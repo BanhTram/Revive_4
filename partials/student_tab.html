@@ -1,0 +1,53 @@
+<section>
+    <h1>Hoc sinh</h1>
+    
+    <input type="text" placeholder="Ho ten" ng-model="inputDataSearch.name">
+    <input type="number" placeholder="Tuoi" ng-model="inputDataSearch.age">
+
+    <select ng-model="inputDataSearch.klass">
+        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value = "{{class.name}}" ng-if="class.parentID ==  0 ">
+            {{class.prefix}}{{class.name}}
+        </option>
+        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value = "{{class.name}}" ng-if="class.parentID ==  10 ">
+            {{class.prefix}}{{class.name}}
+        </option>
+        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value = "{{class.name}}" ng-if="class.parentID ==  11 ">
+            {{class.prefix}}{{class.name}}
+        </option>
+        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value = "{{class.name}}" ng-if="class.parentID ==  12 ">
+            {{class.prefix}}{{class.name}}
+        </option>
+    </select>
+
+    <button ng-click="search()">Tim kiem</button>
+
+    <button ng-click="addStudent()">Them hoc sinh</button>
+
+    <table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Ho va ten</td>
+                <td>Tuoi</td>
+                <td>Lop</td>
+                <td>Thao tac</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr dir-paginate="student in students| itemsPerPage:5">
+                <td>{{$index + 1}}</td>
+                <td class="ColumnStudentName">{{student.name}}</td>
+                <td>{{calculateAge(student.age)}}</td>
+                <td>{{student.klass}}</td>
+                <td class="Interactive">
+                    <button ng-click="editStudent(student)">Sua</button>
+                    <button ng-click="deleteStudent(student)">Xoa</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <dir-pagination-controls class="dir" max-size="5" direction-links="true" boundary-links="true">
+    </dir-pagination-controls>
+
+</section>

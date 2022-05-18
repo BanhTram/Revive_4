@@ -1,0 +1,59 @@
+<section>
+    <h1>Sua hoc sinh</h1>
+
+    <form action="#">
+        <table class="NoneBorder">
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Ho ten:</td>
+                <td class="NoneBorder">
+                    <input type="text" ng-model="student.name" required>
+                </td>
+            </tr>
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Ngay sinh:</td>
+                <td class="NoneBorder">
+                    <input type="date" ng-model="student.age" required>
+                </td>
+            </tr>
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Lop:</td>
+                <td class="NoneBorder">
+                    <select ng-model="student.klass" required>
+
+                        <option value=""></option>
+
+                        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value="{{class.name}}"
+                            ng-if="class.parentID ==  0 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value="{{class.name}}"
+                            ng-if="class.parentID ==  10 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value="{{class.name}}"
+                            ng-if="class.parentID ==  11 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                        <option ng-repeat="class in klasses | orderBy: 'orderBy'" value="{{class.name}}"
+                            ng-if="class.parentID ==  12 ">
+                            {{class.prefix}}{{class.name}}
+                        </option>
+
+                    </select>
+                </td>
+
+            </tr>
+
+            </td>
+            </tr>
+
+        </table>
+
+        <button type="submit" ng-click="saveEditStudent(student.name, student.age, student.klass)">Luu</button>
+
+    </form>
+
+</section>

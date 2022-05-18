@@ -1,0 +1,50 @@
+<section>
+    <h1>Them lop</h1>
+
+    <form action="#">
+        <table class="NoneBorder">
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Ten lop:</td>
+                <td class="NoneBorder">
+                    <input type="text" ng-model="name" placeholder="Ten lop" required>
+                </td>
+            </tr>
+            <tr class="NoneBorder">
+                <td class="NoneBorder">Thuoc:</td>
+                <td class="NoneBorder">
+
+                    <select ng-model="belong" required>
+
+                        <option value=""></option>
+
+                        <option ng-repeat="klass in klasses | orderBy: 'orderBy'" value="{{klass.name}}"
+                            ng-if="klass.parentID ==  0 ">
+                            {{klass.prefix}}{{klass.name}}
+                        </option>
+
+                        <option ng-repeat="klass in klasses | orderBy: 'orderBy'" value="{{klass.name}}"
+                            ng-if="klass.parentID ==  10 ">
+                            {{klass.prefix}}{{klass.name}}
+                        </option>
+
+                        <option ng-repeat="klass in klasses | orderBy: 'orderBy'" value="{{klass.name}}"
+                            ng-if="klass.parentID ==  11 ">
+                            {{klass.prefix}}{{klass.name}}
+                        </option>
+
+                        <option ng-repeat="klass in klasses | orderBy: 'orderBy'" value="{{klass.name}}"
+                            ng-if="klass.parentID ==  12 ">
+                            {{klass.prefix}}{{klass.name}}
+                        </option>
+
+                    </select>
+
+                </td>
+            </tr>
+        </table>
+
+        <button ng-click="saveAddClass(name, belong)">Luu</button>
+
+    </form>
+
+</section>
